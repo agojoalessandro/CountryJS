@@ -2,12 +2,20 @@
 var express = require('express');
 var router = express.Router();
 var faker = require('faker');
+let vett = new Array();
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
  res.send(createFakePerson());
 });
 
+router.get('/ten', function(req, res, next){
+    for(let index = 0; index < 10; index++ ){
+        vett.push(createFakePerson());
+    }
+    let data = JSON.stringify(vett);
+    
+})
 function createFakePerson()
 {
  let randomName = faker.name.findName(); // Rowan Nikolaus
